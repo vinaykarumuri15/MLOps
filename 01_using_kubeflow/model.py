@@ -30,7 +30,7 @@ def build_model(aws_access_key_id: str, aws_secret_access_key: str):
     from sklearn.linear_model import LinearRegression
     # from sklearn.metrics import mean_squared_error
 
-    bucket = "vinaykubeflow"
+    bucket = "vinaykubelow"
     data_s3_path = "data/rental_1000.csv"
     model_s3_path = "model/rental_prediction_model.pkl"
     local_data_path = "rental_1000.csv"
