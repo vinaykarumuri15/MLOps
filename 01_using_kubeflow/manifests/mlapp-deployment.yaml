@@ -19,7 +19,7 @@ spec:
         
     spec:
       containers:
-      - name: kumarans-mlapp-container
+      - name: vinay-mlapp-container
         image: vinaykarumuri15/vinay_mlops:latest
         ports:
         - containerPort: 5000
