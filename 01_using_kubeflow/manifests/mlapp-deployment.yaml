@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: kumarans-mlapp-container
-        image: ssadcloud/mlapp:latest
+        image: vinaykarumuri15/vinay_mlops:latest
         ports:
         - containerPort: 5000

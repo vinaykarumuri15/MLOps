@@ -131,6 +131,44 @@ USING JENKINS FOR 01_USING_KUBEFLOW
     $ cd 01_using_kubeflow
     $ kubectl apply -f manifests/
 
+
+# Using MLFLOW
+   $ pip install mlflow
+   $ mlflow --version
+
+# How to start MLFLow Server
+   $ mlflow server --host 127.0.0.1 --port 5050
+
+##############################################################################
+USING JENKINS FOR 02_USING_MLFLOW
+##############################################################################
+
+# USE JENKINS FOR KUBEFLOW
+- Create Job1 : 01-build-model-using-kubeflow
+
+ - Task1: (Model Download)
+   $ cd 02_using_mlflow
+   $ python model.py
+
+
+ - Task2: (Docker Build)
+   $ cd 02_using_mlflow
+   $ aws s3 cp s3://sigma-bucket-us-east-2/model/model.pkl model/model.pkl
+   $ docker build . -t ssadcloud/mlapp
+   $ docker push ssadcloud/mlapp:latest
+
+# USE JENKINS
+- Create Job2
+ - Task1:
+    $ cd 02_using_mlflow
+    $ kubectl delete -f manifests/
+
+ - Task2:
+    $ cd 02_using_mlflow
+    $ kubectl apply -f manifests/
+
+
+
 =================================================================================
 # Loggging and Monitoring with Prometheus and Grafana
 =================================================================================
